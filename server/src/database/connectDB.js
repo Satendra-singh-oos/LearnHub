@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-
-const MAX_RETRIES = 3;
-const RETRY_INTERVAL = 100;
+import { DB_MAX_RETRIES, DB_RETRY_INTERVAL } from "../constant.js";
 
 class DatabaseConnection {
   constructor() {
@@ -66,12 +64,12 @@ class DatabaseConnection {
   }
 
   async handleConnectionError() {
-    if (this.retryCount < MAX_RETRIES) {
+    if (this.retryCount < DB_MAX_RETRIES) {
       this.retryCount++;
       console.log(
-        `♻️ Retrying connection... Attempt ${this.retryCount} of ${MAX_RETRIES}`,
+        `♻️ Retrying connection... Attempt ${this.retryCount} of ${DB_MAX_RETRIES}`,
       );
-      await new Promise((resolve) => setTimeout(resolve, RETRY_INTERVAL));
+      await new Promise((resolve) => setTimeout(resolve, DB_RETRY_INTERVAL));
       return this.connect();
     } else {
       console.error(
