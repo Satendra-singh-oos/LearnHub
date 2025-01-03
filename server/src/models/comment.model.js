@@ -10,10 +10,12 @@ const commentSchema = new Schema(
     course: {
       type: Schema.Types.ObjectId,
       ref: "Course",
+      required: [true, "Course reference is required"],
     },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: [true, "User reference is required"],
     },
   },
   {
