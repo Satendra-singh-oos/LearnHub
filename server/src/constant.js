@@ -38,4 +38,11 @@ export const CourseLevelEnum = {
   ADVANCED: "ADVANCED",
 };
 
+export const CoursePurchasePaymentEnum = {
+  PENDING: "PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  REFUNDED: "REFUNDED",
+};
+
 export const RESET_PASSWORD_TOKEN_EXPIRY = 10 * 60 * 1000; // 10 minutes
