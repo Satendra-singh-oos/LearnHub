@@ -33,6 +33,24 @@ app.use(cookieParser());
 
 // API Routes
 
+import userRoute from "./routes/user.route.js";
+import courseRoute from "./routes/course.route.js";
+import purchaseRoute from "./routes/coursePurchase.route.js";
+import courseProgressRoute from "./routes/courseProgress.route.js";
+import razorpayRoute from "./routes/razorpay.route.js";
+import healthRoute from "./routes/health.route.js";
+import courseAnnouncementRoute from "./routes/courseAnnouncement.route.js";
+import courseRatingRoute from "./routes/courseRating.route.js";
+
+app.use("/health", healthRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/course", courseRoute);
+app.use("/api/v1/purchase", purchaseRoute);
+app.use("/api/v1/progress", courseProgressRoute);
+app.use("/api/v1/rating", courseRatingRoute);
+app.use("/api/v1/announcement", courseAnnouncementRoute);
+app.use("/api/v1/razorpay", razorpayRoute);
+
 //  404 route if page not exist
 app.use((req, res) => {
   res.status(404).json({

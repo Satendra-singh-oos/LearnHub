@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const announcementSchema = new Schema(
+const courseAnnouncementSchema = new Schema(
   {
     content: {
       type: String,
@@ -21,4 +21,7 @@ const announcementSchema = new Schema(
   { timestamps: true }
 );
 
-export const Announcement = mongoose.model("Announcement", announcementSchema);
+export const courseAnnouncement = mongoose.model(
+  "courseAnnouncement",
+  courseAnnouncementSchema
+);
